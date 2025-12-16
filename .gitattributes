@@ -1,0 +1,29 @@
+# Default behavior: text files use CRLF in checkout, LF in repository
+* text=auto
+
+# Shell scripts must always use LF (even on Windows)
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Windows-specific files should use CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Other text files - will follow core.autocrlf (CRLF on Windows)
+*.txt text
+*.java text
+*.py text
+*.js text
+*.css text
+*.html text
+*.md text
+*.xml text
+*.yaml text
+*.json text
+
+# Binary files should not be modified
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.zip binary
