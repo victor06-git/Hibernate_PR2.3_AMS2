@@ -379,6 +379,8 @@ public class Manager {
                 exemplar.setDisponible(true);
                 // e) Guardar canvis (Hibernate detecta els canvis automàticament en objectes
                 // managed)
+                session.merge(exemplar);
+                session.merge(prestec);
             } else {
                 // 4. SI NO ES POT RETORNAR:
                 // Mostrar missatge informatiu

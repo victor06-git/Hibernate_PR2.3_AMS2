@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
@@ -25,7 +27,7 @@ public class Biblioteca implements Serializable {
     private String email;
 
     // TODO 3: @OneToMany cap a Exemplar
-    @OneToMany(mappedBy = "biblioteca")
+    @OneToMany(mappedBy = "biblioteca", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Exemplar> exemplars = new HashSet<>();
 
     public Biblioteca() {

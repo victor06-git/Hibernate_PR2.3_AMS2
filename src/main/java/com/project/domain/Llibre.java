@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -42,7 +43,7 @@ public class Llibre implements Serializable {
 
     // TODO 4: Relació OneToMany amb Exemplar.
     // PISTA: mappedBy = "llibre"
-    @OneToMany(mappedBy = "llibre")
+    @OneToMany(mappedBy = "llibre", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Exemplar> exemplars = new HashSet<>();
 
     public Llibre() {

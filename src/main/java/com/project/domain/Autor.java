@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,7 +29,7 @@ public class Autor implements Serializable {
     // TODO 3: Relació ManyToMany.
     // PISTA: L'enunciat diu que Autor és la part inversa ("mappedBy").
     // Això vol dir que la taula intermèdia la gestiona l'entitat 'Llibre'.
-    @ManyToMany(mappedBy = "autors")
+    @ManyToMany(mappedBy = "autors", fetch = FetchType.LAZY)
     private Set<Llibre> llibres = new HashSet<>();
 
     public Autor() {

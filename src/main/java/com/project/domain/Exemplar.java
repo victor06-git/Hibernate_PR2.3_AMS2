@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -21,6 +25,7 @@ public class Exemplar implements Serializable {
 
     // TODO 2: @Id
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long exemplarId;
 
     // TODO 3: @Column amb unique = true
@@ -40,7 +45,7 @@ public class Exemplar implements Serializable {
     private Biblioteca biblioteca;
 
     // TODO 6: Relació OneToMany amb Prestec (historial)
-    @OneToMany(mappedBy = "exemplar")
+    @OneToMany(mappedBy = "exemplar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Prestec> historialPrestecs = new HashSet<>();
 
     public Exemplar() {
