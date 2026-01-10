@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -16,6 +18,7 @@ public class Prestec implements Serializable {
 
     // TODO 2: @Id
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long prestecId;
 
     // TODO 3: Relacions @ManyToOne (cap a Exemplar i Persona)
